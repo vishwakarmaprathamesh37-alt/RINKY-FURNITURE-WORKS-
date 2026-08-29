@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rinky Furniture Works | Custom Interior & Woodwork</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #d4a373;
+            --secondary: #faedcd;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --accent: #bc6c25;
+        }
+
+        body {
+            background-color: var(--light);
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s transform, 0.3s background;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            height: 220px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            background: var(--dark);
+            color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .info-box {
+            text-align: center;
+        }
+
+        .info-box i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Rinky Furniture</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Our Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Rinky Furniture Works</h1>
+        <p>Premium Quality Custom Furniture, Modular Kitchens, & Interior Woodwork</p>
+        <div class="btn-group">
+            <a href="tel:9892952191" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
+            <a href="https://wa.me/9096228138?text=Hello%20Rinky%20Furniture%20Works,%20I%20want%20to%20inquire%20about%20furniture%20work" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <h2 class="section-title">Our Specialization</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-kitchen-set"></i>
+                <h3>Modular Kitchen</h3>
+                <p>Customized waterproof & modern modular kitchen solutions.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-bed"></i>
+                <h3>Custom Wardrobes</h3>
+                <p>Sliding & hinged wardrobes designed to maximize space.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-couch"></i>
+                <h3>Sofa & Living</h3>
+                <p>Tailor-made sofas, TV units, and living room interior setups.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-hammer"></i>
+                <h3>Repair & Polish</h3>
+                <p>Re-polishing, furniture repair, and quick renovation works.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="work" style="background: #efefef;">
+        <h2 class="section-title">Work Showcase</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" alt="Furniture Work">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80" alt="Interior Work">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Woodwork">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80" alt="Bedroom Work">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-info">
+            <div class="info-box">
+                <i class="fa-solid fa-phone"></i>
+                <h3>Call Us</h3>
+                <p>+91 9892952191</p>
+            </div>
+            <div class="info-box">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p>+91 9096228138</p>
+            </div>
+            <div class="info-box">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Services In</h3>
+                <p>Local & Nearby Areas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Rinky Furniture Works. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
